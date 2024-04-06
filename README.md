@@ -51,4 +51,4 @@ This Django project provides functionalities for file management, including crea
 4. View Files:
    - Use the endpoint `http://localhost:8000/get_files/` to get a list of available files.
    - Use the endpoint `http://localhost:8000/get_file/<filename>/` to view the content of a specific file.
-```
+
