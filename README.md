@@ -52,14 +52,4 @@ This Django project provides functionalities for file management, including crea
    - Use the endpoint `http://localhost:8000/get_files/` to get a list of available files.
    - Use the endpoint `http://localhost:8000/get_file/<filename>/` to view the content of a specific file.
 
-## Password Protection (Optional)
 
-To add password protection for files, include an optional `password` parameter in your requests:
-- For creating files, include `password` in the request body.
-- For accessing files, include `password` in the URL query parameters.
-
-Note: Update the password validation logic in the code as per your security requirements.
-
-
-
-Replace placeholders like `your_username`, `your_repository`, and update the project-specific details according to your actual project setup and requirements. This README provides an overview of your Django project, its functionalities, how to use it, and optional password protection instructions.
