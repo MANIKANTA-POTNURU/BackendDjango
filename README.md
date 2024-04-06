@@ -15,7 +15,7 @@ This Django project provides functionalities for file management, including crea
 
 2. Install the required dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install django
    ```
 
 3. Run the Django development server:
