@@ -40,3 +40,40 @@ def get_file(request, filename):
 def upload_file(request):
     return render(request, 'upload_file.html')
 
+from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest
+import os
+
+def modify_file_view(request, filename):
+    file_path = os.path.join('media', filename)
+    if not os.path.exists(file_path):
+        return HttpResponseBadRequest("File not found")
+
+    if request.method == 'POST':
+        new_content = request.POST.get('new_content')
+        if new_content:
+            with open(file_path, 'w') as file:
+                file.write(new_content)
+            return redirect('file_modified')
+        else:
+            return HttpResponseBadRequest("Missing new content")
+    else:
+        with open(file_path, 'r') as file:
+            file_content = file.read()
+
+        return render(request, 'modify_file.html', {'filename': filename, 'file_content': file_content})
+
+def file_modified(request):
+    return render(request, 'file_modified.html')
+
+def delete_file(request, filename):
+    file_path = os.path.join('media', filename)
+    if not os.path.exists(file_path):
+        return HttpResponseBadRequest("File not found")
+
+    os.remove(file_path)
+    return JsonResponse({"message": "File deleted successfully"}, status=200)
+
+
+
+
